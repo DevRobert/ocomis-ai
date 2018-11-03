@@ -49,4 +49,16 @@ public class BackpropagationTest {
         Assert.assertEquals(0.751365070, output[0], 0.000000001);
         Assert.assertEquals(0.772928465, output[1], 0.000000001);
     }
+
+    @Test
+    public void calculateTotalError() {
+        double[] input = { 0.05, 0.10 };
+        double[] actualOutput = this.neuralNetwork.calculateOutput(input);
+        double[] targetOutput = new double[] { 0.01, 0.99 };
+
+        TotalErrorCalculator totalErrorCalculator = new TotalErrorCalculator();
+        double totalError = totalErrorCalculator.calculateTotalError(targetOutput, actualOutput);
+
+        Assert.assertEquals(0.298371109, totalError, 0.000000001);
+    }
 }
