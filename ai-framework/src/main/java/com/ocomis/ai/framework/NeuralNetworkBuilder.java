@@ -1,9 +1,13 @@
 package com.ocomis.ai.framework;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NeuralNetworkBuilder {
     private LayerSize inputLayerSize;
     private LayerSize outputLayerSize;
     private ActivationFunction activationFunction;
+    private final List<LayerSize> hiddenLayerSizes = new ArrayList<>();
 
     public void setInputLayerSize(LayerSize inputLayerSize) {
         this.inputLayerSize = inputLayerSize;
@@ -15,6 +19,10 @@ public class NeuralNetworkBuilder {
 
     public void setActivationFunction(ActivationFunction activationFunction) {
         this.activationFunction = activationFunction;
+    }
+
+    public void addHiddenLayer(LayerSize layerSize) {
+        this.hiddenLayerSizes.add(layerSize);
     }
 
     public NeuralNetwork buildNetwork() {
@@ -30,7 +38,7 @@ public class NeuralNetworkBuilder {
             throw new RuntimeException("The activation function must be specified.");
         }
 
-        NeuralNetwork neuralNetwork = new NeuralNetwork(this.inputLayerSize, this.outputLayerSize, this.activationFunction);
+        NeuralNetwork neuralNetwork = new NeuralNetwork(this.inputLayerSize, this.outputLayerSize, this.hiddenLayerSizes, this.activationFunction);
 
         return neuralNetwork;
     }

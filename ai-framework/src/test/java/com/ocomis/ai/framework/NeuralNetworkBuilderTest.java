@@ -35,6 +35,20 @@ public class NeuralNetworkBuilderTest {
     }
 
     @Test
+    public void networkMatchesHiddenLayerSizes() {
+        this.neuralNetworkBuilder.setInputLayerSize(new LayerSize(2));
+        this.neuralNetworkBuilder.setOutputLayerSize(new LayerSize(2));
+        this.neuralNetworkBuilder.addHiddenLayer(new LayerSize(4));
+        this.neuralNetworkBuilder.addHiddenLayer(new LayerSize(5));
+        this.neuralNetworkBuilder.setActivationFunction(new SigmoidActivationFunction());
+
+        NeuralNetwork network = this.neuralNetworkBuilder.buildNetwork();
+
+        Assert.assertEquals(new LayerSize(4), network.getHiddenLayer(0).getSize());
+        Assert.assertEquals(new LayerSize(5), network.getHiddenLayer(1).getSize());
+    }
+
+    @Test
     public void failsIfInputLayerSizeNotSpecified() {
         try {
             this.neuralNetworkBuilder.buildNetwork();
