@@ -4,9 +4,9 @@ public class NeuralNetwork {
     private NeuralNetworkLayer inputLayer;
     private NeuralNetworkLayer outputLayer;
 
-    public NeuralNetwork(LayerSize inputLayerSize, LayerSize outputLayerSize) {
-        this.inputLayer = new NeuralNetworkLayer(inputLayerSize);
-        this.outputLayer = new NeuralNetworkLayer(outputLayerSize);
+    public NeuralNetwork(LayerSize inputLayerSize, LayerSize outputLayerSize, ActivationFunction activationFunction) {
+        this.inputLayer = new NeuralNetworkLayer(inputLayerSize, activationFunction);
+        this.outputLayer = new NeuralNetworkLayer(outputLayerSize, activationFunction);
     }
 
     public NeuralNetworkLayer getInputLayer() {
@@ -15,5 +15,9 @@ public class NeuralNetwork {
 
     public NeuralNetworkLayer getOutputLayer() {
         return this.outputLayer;
+    }
+
+    public double[] calculateOutput(double[] input) {
+        return this.outputLayer.calculateOutput(input);
     }
 }
