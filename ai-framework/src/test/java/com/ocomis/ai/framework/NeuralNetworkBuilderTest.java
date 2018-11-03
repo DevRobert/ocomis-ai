@@ -40,7 +40,7 @@ public class NeuralNetworkBuilderTest {
         this.neuralNetworkBuilder.setOutputLayerSize(new LayerSize(2));
         this.neuralNetworkBuilder.addHiddenLayer(new LayerSize(4));
         this.neuralNetworkBuilder.addHiddenLayer(new LayerSize(5));
-        this.neuralNetworkBuilder.setActivationFunction(new SigmoidActivationFunction());
+        this.neuralNetworkBuilder.setActivationFunction(new LogisticActivationFunction());
 
         NeuralNetwork network = this.neuralNetworkBuilder.buildNetwork();
 

@@ -180,7 +180,7 @@ public class NeuralNetworkTest {
         NeuralNetworkBuilder neuralNetworkBuilder = new NeuralNetworkBuilder();
         neuralNetworkBuilder.setInputLayerSize(new LayerSize(1));
         neuralNetworkBuilder.setOutputLayerSize(new LayerSize(1));
-        neuralNetworkBuilder.setActivationFunction(new SigmoidActivationFunction());
+        neuralNetworkBuilder.setActivationFunction(new LogisticActivationFunction());
 
         NeuralNetwork neuralNetwork = neuralNetworkBuilder.buildNetwork();
 

@@ -16,7 +16,7 @@ public class BackpropagationTest {
         neuralNetworkBuilder.setInputLayerSize(new LayerSize(2));
         neuralNetworkBuilder.addHiddenLayer(new LayerSize(2));
         neuralNetworkBuilder.setOutputLayerSize(new LayerSize(2));
-        neuralNetworkBuilder.setActivationFunction(new SigmoidActivationFunction());
+        neuralNetworkBuilder.setActivationFunction(new LogisticActivationFunction());
 
         this.neuralNetwork = neuralNetworkBuilder.buildNetwork();
 

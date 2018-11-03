@@ -4,12 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SigmoidActivationFunctionTest {
+public class LogisticActivationFunctionTest {
     private ActivationFunction activationFunction;
 
     @Before
     public void before() {
-        this.activationFunction = new SigmoidActivationFunction();
+        this.activationFunction = new LogisticActivationFunction();
     }
 
     @Test
